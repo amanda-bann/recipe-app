@@ -2,11 +2,29 @@
 
 This project uses Create-React-App, Flask and SQLite.
 
+## Python environment
+
+This repo uses a project-local virtual environment at `.venv` in the project root.
+
+Create it once from the project root:
+
+`python3 -m venv .venv`
+
+Activate it:
+
+`source .venv/bin/activate`
+
+Install backend dependencies into the project environment:
+
+`python -m pip install -r api/requirements.txt`
+
+In VS Code, select `.venv/bin/python` as the interpreter for this workspace. If imports still show as unresolved after installing dependencies, run `Python: Restart Language Server` or `Developer: Reload Window` from the Command Palette.
+
 ## Available Scripts
 
-You will need to be running two scrips in two separate terminal tabs / windows.
+You will need to run two scripts in two separate terminal tabs / windows.
 
-One will be for for running the Flask server, and the other for the React server.
+One is for the Flask server, and the other is for the React server.
 
 ---
 
@@ -14,13 +32,13 @@ One will be for for running the Flask server, and the other for the React server
 
 ### For Flask
 
-First, make sure you drop into the `/api` directory, create and then run a virtual environment:
+From the project root, activate the local environment:
 
-`python -m venv venv && source venv/bin/activate`
+`source .venv/bin/activate`
 
-(For future sessions, only `source venv/bin/activate` will be needed to start the virtual environment. I recommend aliasing this command!)
+Then install all dependencies:
 
-Then install all dependencies `pip install -r requirements.txt` (only the first time)
+`python -m pip install -r api/requirements.txt`
 
 ### For React
 
@@ -32,23 +50,17 @@ In your other Terminal window, in the root of the project directory, run `npm in
 
 ### For Flask
 
-Ensure that your virtual environment is running (You should see a `(venv)` at the end of your prompt)
-
-Then:
-On Mac: _move back to the root of the project_ and run
+From the root of the project, run:
 
 `npm run start-api`
 
-On Windows:
-Stay in the `/api` directory and run
-
-`flask run --no-debugger`
+This script runs Flask from the repo-level `.venv` and points Flask at `api/api.py`.
 
 This will run the Flask server on port 5000
 
 ### For the React server
 
-Run `npm run start`
+From the root of the project, run `npm run start`
 
 This will start your React dev server on port 3000.
 
@@ -60,8 +72,8 @@ You should now be able to see the app in the browser.
 
 ### For Flask
 
-Use `ctrl + C` to stop the server
-Run `deactivate` to stop the virtual environment. You do not need to move into the `/api` directory first. (You do need to in order to _start_ the virtual environment, though.)
+Use `ctrl + C` to stop the server.
+Run `deactivate` to stop the virtual environment.
 
 ### For React
 
@@ -69,4 +81,4 @@ Use `ctrl + C` to stop the server.
 
 ---
 
-Have fun! 😎 🎉 💻
+Have fun.

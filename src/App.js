@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import Header from "./components/Header";
 import RecipeExcerpt from "./components/RecipeExcerpt";
 import RecipeFull from "./components/RecipeFull";
-import NewFormRecipe from "./components/NewFormRecipe";
+import NewRecipeForm from "./components/NewFormRecipe";
 import "./App.css";
 
 function App() {
@@ -52,6 +52,11 @@ function App() {
     setShowNewRecipeForm(true);
     setSelectedRecipe(null);
   };
+
+  const onUpdateForm = (e) => {
+    const { name, value } = e.target;
+    setNewRecipe({ ...newRecipe, [name]: value});
+  }
 
   return (
     <div className='recipe-app'>

@@ -1,11 +1,13 @@
 import React from "react";
 
-const NewFormRecipe = () => {
+const NewFormRecipe = ({ newRecipe, hideRecipeForm, onUpdateForm }) => {
     return (
         <div className='recipe-details'>
                 <div className='recipe-form'>
                     <h2>New Recipe</h2>
-                <button className='cancel-button'>Cancel</button>
+                <button className='cancel-button' onClick={hideRecipeForm}>
+                    Cancel
+                </button>
 
                 <form>
                     <label htmlFor="title">Title</label>
@@ -14,8 +16,8 @@ const NewFormRecipe = () => {
                     <textarea
                         id="ingredients"
                         name='ingredients'
-                        value=''
-                        onChange=''
+                        value={newRecipe.ingredients}
+                        onChange={(e) => onUpdateForm(e)}
                         required
                         placeholder='Add ingredients separated by commas - i.e. flour, sugar, almonds'
                     />
